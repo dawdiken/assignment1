@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<style>
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+    <head>
+        <title>{{ title }}</title>
+    <script type="text/javascript" src="http://kozea.github.com/pygal.js/javascripts/svg.jquery.js"></script>
+    <script type="text/javascript" src="http://kozea.github.com/pygal.js/javascripts/pygal-tooltips.js"></script>
+    </head>
+    <body class="body">
+         <div class="topnav">
+            <a class="active" href="/">Home</a>
+            <a href="/maxeage/">Age range of medal winners</a>
+            <a href="/variabilityage/">Variability/Deviation of age</a>
+            <a href="/correlation/">Correlation</a>
+              <a href="/averageage/">Average Age/Height</a>
+        </div>
+        <div class="varabilityage" align="center">
+            <h1>Variance and deviation of medal winners age:</h1>
+            <h2>This page shows us the following stats for medal winners at the olympics</h2>
+            <ul align="center">
+                <a align="center"><li align="">Mean age for medal winner</li></a>
+                <li align="center">Variance of age for medal winner. Variance is a measure of how spread out numbers are. It is the average of the squared differences from the Mean = {{ gold_variance }}</li></a>
+                <li align="center">Standard deviation for medal winner. Standard deviation is a number used to tell how measurements for a group are spread out from the average (mean), or expected value. A low standard deviation means that most of the numbers are close to the average. A high standard deviation means that the numbers are more spread out.</li></a>
+            </ul>
+            <h2>Gold Medal Statistics</h2>
+            <ul align="center">
+                <a align="center"><li align="center">Mean age for Gold medal winner = {{ gold_mean }}</li></a>
+                <li align="center">Variance of age for Gold medal winner = {{ gold_variance }}</li></a>
+                <li align="center">Standard deviation for Gold medal winner = {{ gold_std_dev }}</li></a>
+            </ul>
+             <div class="container" align="center">
+                <embed type="image/svg+xml" src={{graph_data_gold|safe}} style='max-width:500px'/>
+             </div>
+             <h2>Silver Medal Statistics</h2>
+             <ul align="center">
+                <li>Mean age for Silver medal winner = {{ silver_mean }}</li></a>
+                <li>Variance of age for Silver medal winner = {{ silver_variance }}</li></a>
+                <li>Standard deviation for Silver medal winner = {{ silver_std_dev }}</li></a>
+             </ul>
+             <div class="container" align="center">
+                <embed type="image/svg+xml" src={{graph_data_silver|safe}} style='max-width:500px'/>
+             </div>
+            <h2>Bronze Medal Statistics</h2>
+             <ul align="center">
+                <li>Mean age for Bronze medal winner = {{ bronze_mean }}</li></a>
+                <li>Variance of age for Bronze medal winner = {{ bronze_variance }}</li></a>
+                <li>Standard deviation for Bronze medal winner = {{ bronze_std_dev }}</li></a>
+             </ul>
+             <div class="container" align="center">
+                <embed type="image/svg+xml" src={{graph_data_bronze|safe}} style='max-width:500px'/>
+             </div>
+        </div>
+    </body>
+</html>

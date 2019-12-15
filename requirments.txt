@@ -1,0 +1,5 @@
+pip install kaggle --upgrade
+requests
+pygal
+pytest
+
