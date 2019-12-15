@@ -71,12 +71,12 @@ def correlation_stat():
         age_gold_medal_val, age_silver_medal_val, age_bronze_medal_val = csv_medal_data_parser(ageColumnNumber)
         height_gold_medal_val, height_silver_medal_val, height_bronze_medal_val = csv_medal_data_parser(
             heightColumnNumber)
-        correlation_gold = correlation(age_gold_medal_val, height_gold_medal_val)
-        correlation_silver = correlation(age_silver_medal_val, height_silver_medal_val)
-        correlation_bronze = correlation(age_bronze_medal_val, height_bronze_medal_val)
-        return render_template("correlation.html", correlation_gold=f"{correlation_gold:.4f}",
-                               correlation_silver=f"{correlation_silver:.4f}",
-                               correlation_bronze=f"{correlation_bronze:.4f}")
+        correlation_gold = f"{correlation(age_gold_medal_val, height_gold_medal_val):.4f}"
+        correlation_silver = f"{correlation(age_silver_medal_val, height_silver_medal_val):.4f}"
+        correlation_bronze = f"{correlation(age_bronze_medal_val, height_bronze_medal_val):.4f}"
+        return render_template("correlation.html", correlation_gold=correlation_gold,
+                               correlation_silver=correlation_silver,
+                               correlation_bronze=correlation_bronze)
     except Exception as e:
         return str(e)
 
