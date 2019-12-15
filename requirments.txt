@@ -1,5 +1,6 @@
-pip install kaggle --upgrade
+Flask
+Redis
+kaggle
 requests
 pygal
 pytest
-

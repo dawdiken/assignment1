@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 import pygal
-from models.statistics_generator import average_values, csv_medal_data_parser, max_min_value, variance_std_deviation, correlation
+from models.statistics_generator import average_values, csv_medal_data_parser, max_min_value, variance_std_deviation, \
+    correlation
 
 app = Flask(__name__)
 
